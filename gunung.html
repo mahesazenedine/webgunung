@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Open Trip enamkerupuk.trip — Jadwal &amp; Paket</title>
+  <style>
+    /* Reset ringan */
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;line-height:1.45;color:#1f2937}
+
+    /* Layout */
+    .container{max-width:1000px;margin:24px auto;padding:20px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,#0ea5a4,#06b6d4);display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:24px;margin-top:18px;align-items:center}
+    .hero h1{font-size:28px;margin-bottom:8px}
+    .hero p{color:#475569}
+    .cta{margin-top:14px}
+    .btn{background:#0ea5a4;color:white;padding:10px 14px;border-radius:10px;text-decoration:none;display:inline-block}
+
+    /* Cards paket */
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:24px}
+    .card{border:1px solid #e6eef0;border-radius:12px;padding:14px;background:white;box-shadow:0 6px 18px rgba(2,6,23,0.03)}
+    .card h3{margin-bottom:6px}
+    .meta{font-size:13px;color:#475569;margin-bottom:10px}
+    .price{font-weight:700;color:#065f46}
+
+    /* Itinerary & Gallery */
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+    .itinerary ol{padding-left:18px}
+    .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+    .img-placeholder{height:120px;border-radius:8px;background:linear-gradient(90deg,#dbeafe,#e6fffa);display:flex;align-items:center;justify-content:center;color:#334155;font-weight:600}
+
+    /* Booking form (non-js) */
+    form{display:flex;flex-direction:column;gap:10px}
+    label{font-size:13px;color:#334155}
+    input,select,textarea{padding:10px;border-radius:8px;border:1px solid #cbd5e1}
+    .muted{font-size:13px;color:#64748b}
+
+    /* Footer */
+    footer{margin-top:28px;padding-top:18px;border-top:1px dashed #e6eef0;color:#475569;font-size:14px}
+
+    /* Responsive */
+    @media (max-width:880px){
+      .hero{grid-template-columns:1fr}
+      .hero .card-aside{order:2}
+      .grid-2{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">OT</div>
+        <div>
+          <div style="font-weight:700">Enamkerpuktrip</div>
+          <div style="font-size:13px;color:#64748b">Petualangan aman — Guide berpengalaman</div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <h1>Ikut Open Trip Gunung — Rasakan Senja di Puncak</h1>
+          <p>Nikmati perjalanan gunung yang direncanakan matang: transport, guide, logistik, hingga safety briefing. Cocok untuk pemula dan pendaki santai.</p>
+          <div class="cta">
+            <a class="btn" href="#paket">Lihat Paket</a>
+            <span style="margin-left:12px;color:#64748b;font-size:13px">Dari 1 hari sampai 3 hari</span>
+          </div>
+
+          <div class="cards" id="paket" style="margin-top:20px">
+            <article class="card">
+              <h3>Paket Sunrise (1 Hari)</h3>
+              <div class="meta">Tingkat: Pemula • Transport & Guide</div>
+              <p class="price">Rp 250.000 / orang</p>
+              <p class="muted">Cocok untuk yang ingin menikmati sunrise tanpa mendirikan tenda.</p>
+            </article>
+
+            <article class="card">
+              <h3>Paket Camping Ringan (2 Hari)</h3>
+              <div class="meta">Tingkat: Menengah • Makan 3x • Tenda & Matras</div>
+              <p class="price">Rp 450.000 / orang</p>
+              <p class="muted">Termasuk briefing, porters untuk logistik, dan instruksi safety.</p>
+            </article>
+
+            <article class="card">
+              <h3>Paket Pendaki (3 Hari)</h3>
+              <div class="meta">Tingkat: Menantang • Full support</div>
+              <p class="price">Rp 750.000 / orang</p>
+              <p class="muted">Rute lengkap, latihan fisik sebelum pendakian, dan dokumentasi profesional.</p>
+            </article>
+          </div>
+        </div>
+
+        <aside class="card card-aside">
+          <h3>Ringkasan</h3>
+          <p class="muted">Tanggal keberangkatan bebas — kami buka pendaftaran setiap minggu.</p>
+
+          <h4 style="margin-top:10px">Apa yang termasuk</h4>
+          <ul style="padding-left:18px;margin-top:8px;color:#475569">
+            <li>Guide berlisensi</li>
+            <li>Transport pulang-pergi (opsional)</li>
+            <li>Makan sesuai paket</li>
+            <li>Perlengkapan tenda (jika dipilih)</li>
+          </ul>
+        </aside>
+      </section>
+
+      <section class="grid-2">
+        <div class="itinerary card">
+          <h3>Contoh Itinerary (2 Hari)</h3>
+          <ol>
+            <li><strong>Hari 1:</strong> Berkumpul, briefing, pendakian sampai basecamp.</li>
+            <li><strong>Hari 2:</strong> Summit dini hari untuk sunrise, turun, dan kembali ke kota.</li>
+          </ol>
+          <p class="muted" style="margin-top:8px">Catatan: waktu dapat berubah sesuai cuaca dan kondisi jalur.</p>
+
+          <h4 style="margin-top:12px">Safety</h4>
+          <ul style="padding-left:18px;color:#475569">
+            <li>Semua peserta wajib mengisi formulir kesehatan.</li>
+            <li>Guide berhak menunda atau membatalkan summit demi keselamatan.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Galeri (contoh)</h3>
+          <div class="gallery" aria-hidden="true">
+            <div class="img-placeholder">ESA GANTENG</div>
+            <div class="img-placeholder">ESA PINTER</div>
+            <div class="img-placeholder">ESA HEBAT</div>
+            <div class="img-placeholder">FOTONA EUWEUH JADI CAN DI ISIAN</div>
+          </div>
+          <p class="muted" style="margin-top:8px">Ganti placeholder dengan foto perjalananmu.</p>
+        </div>
+      </section>
+
+      <section style="margin-top:20px" class="card">
+        <h3>Data Pendaki</h3>
+        <form id="tripForm">
+  <label for="nama">Nama Lengkap</label>
+  <input id="nama" name="nama" type="text" required>
+
+  <label for="paket">Pilih Paket</label>
+  <select id="paket" name="paket">
+    <option>Sunrise (1 Hari)</option>
+    <option>Camping Ringan (2 Hari)</option>
+    <option>Pendaki (3 Hari)</option>
+  </select>
+
+  <label for="catatan">Catatan (riwayat penyakit)</label>
+  <textarea id="catatan" name="catatan"></textarea>
+
+  <label for="nohp">Nomor HP</label>
+  <input id="nohp" name="nohp" type="text" required>
+
+  <button type="submit">Daftar</button>
+</form>
+
+<script>
+const scriptURL = "https://script.google.com/macros/s/AKfycbzSSd5CBafd6d___OEP0hErq92sIECiCkcpdJQNqarmsssDG3mNdJRHIahpPg9rCH3p/exec"; // ganti dengan /exec
+
+const form = document.getElementById('tripForm');
+form.addEventListener('submit', function(e){
+  e.preventDefault();
+
+  fetch(scriptURL, {
+    method: 'POST',
+    body: new FormData(form)   // 🔑 cukup ini, jangan pakai headers
+  })
+  .then(r => r.json())
+  .then(resp => {
+    if (resp.result === 'success') {
+      alert('✅ Pendaftaran berhasil!');
+      form.reset();
+    } else {
+      alert('❌ Error: ' + (resp.message || JSON.stringify(resp)));
+    }
+  })
+  .catch(err => {
+    console.error(err);
+    alert('Gagal mengirim: ' + err);
+  });
+});
+</script>
+
+
+
+    </main>
+
+    <footer>
+      <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px">
+        <div style="text-align:right">
+          <div>Kontak: 083138318634</div>
+          <div style="margin-top:4px">Instagram: enamkerupuk.trip</div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
